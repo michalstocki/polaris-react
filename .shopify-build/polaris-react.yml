@@ -1,0 +1,31 @@
+containers:
+  default:
+    docker: gcr.io/shopify-docker-images/apps/production/web-platform-ci-node:10.11.0-yarn-1.12.3
+  styleguide:
+    docker: circleci/node:10.13.0
+
+shared:
+  build-web: &build-web
+    label: 'Build web'
+    container: default
+    timeout: 20m
+    dependencies:
+      - yarn
+    run:
+      - yarn run build
+      - ./move-directory-in-ci.sh
+      - ./polaris-react/build-consumer.sh web
+  build-styleguide: &build-styleguide
+    label: 'Build styleguide'
+    container: styleguide
+    timeout: 25m
+    dependencies:
+      - yarn
+    run:
+      - yarn run build
+      - ./move-directory-in-ci.sh
+      - ./polaris-react/build-consumer.sh polaris-styleguide
+
+steps:
+  - <<: *build-styleguide
+  - <<: *build-web
