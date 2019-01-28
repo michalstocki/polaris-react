@@ -436,6 +436,78 @@ Use to be able to use custom React elements as header content.
 </Card>
 ```
 
+### Full example of card
+
+<!-- example-for: web -->
+
+Use as a broad example that includes most props available to card.
+
+```jsx
+<Card
+  sectioned
+  title="Dashboard"
+  actions={[{content: 'View dashboard'}]}
+  secondaryFooterAction={{content: 'Dismiss'}}
+  primaryFooterAction={{content: 'Export Report'}}
+>
+  <Card.Header
+    actions={[
+      {
+        content: 'Total Sales',
+      },
+    ]}
+    title="Sales"
+  >
+    <Popover
+      active
+      activator={
+        <Button disclosure plain>
+          View Sales
+        </Button>
+      }
+      onClose={() => {}}
+    >
+      <ActionList items={[{content: 'Gross Sales'}, {content: 'Net Sales'}]} />
+    </Popover>
+  </Card.Header>
+  <Card.Section title="Total Sales Breakdown">
+    <DataTable
+      columnContentTypes={['text', 'numeric']}
+      headings={['Sales', 'Amount']}
+      rows={[['Orders', 'USD$0.00'], ['Returns', '-USD$250.00']]}
+    />
+  </Card.Section>
+  <Card.Section title="Total Sales By Channel">
+    <DataTable
+      columnContentTypes={['text', 'numeric']}
+      headings={['Channel', 'Amount']}
+      rows={[
+        ['All Channels', '-USD$250.00'],
+        ['Online Store', '-USD$0.00'],
+        ['Facebook', '-USD$250.00'],
+      ]}
+    />
+  </Card.Section>
+  <Card.Section subdued title="Payout Schedule">
+    <DataTable
+      columnContentTypes={['text', 'numeric']}
+      headings={['', '']}
+      rows={[
+        [
+          <Stack>
+            <DisplayText size="10">
+              Today <Badge status="success">Paid</Badge>
+            </DisplayText>
+          </Stack>,
+          'USD$2754.00',
+        ],
+        ['Tomorrow', 'USD$1640.81'],
+      ]}
+    />
+  </Card.Section>
+</Card>
+```
+
 ---
 
 ## Related components
