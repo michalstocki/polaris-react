@@ -6,6 +6,7 @@ ci:
     - codecov/patch
   require:
     - 'ci/circleci: check'
+    - buildkite/polaris-react
 
 merge:
   require:
