@@ -8,7 +8,7 @@ fi
 
 ls -l
 mkdir ../tmp/polaris-react
-mv !(node_modules|web|polaris-styleguide) ../tmp/polaris-react
+mv !(node_modules|cache-directory) ../tmp/polaris-react
 ls -l
 git clone ssh://git@github.com/Shopify/$1 --depth 1
 if [ -d "cache-directory/$1" ]; then
