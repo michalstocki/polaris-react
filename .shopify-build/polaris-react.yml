@@ -11,10 +11,7 @@ shared:
     timeout: 25m
     cache:
       - web/node_modules
-    dependencies:
-      - yarn
     run:
-      - yarn run build
       - ./.shopify-build/setup-consumer-test.sh web
       - yarn --cwd ./web run build
   build-styleguide: &build-styleguide
@@ -23,10 +20,7 @@ shared:
     timeout: 20m
     cache:
       - polaris-styleguide/node_modules
-    dependencies:
-      - yarn
     run:
-      - yarn run build
       - ./.shopify-build/setup-consumer-test.sh polaris-styleguide
       - yarn --cwd ./polaris-styleguide run build
   unit-tests: &unit-tests
@@ -36,10 +30,7 @@ shared:
     cache:
       - web/node_modules
       - build/cache/jest
-    dependencies:
-      - yarn
     run:
-      - yarn run build
       - ./.shopify-build/setup-consumer-test.sh web
       - node ./web/.shopify-build/balancer.js
       - CI=true yarn --cwd ./web run sewing-kit test --maxWorkers 2 --coverage $(./web/.shopify-build/balancer.js)
