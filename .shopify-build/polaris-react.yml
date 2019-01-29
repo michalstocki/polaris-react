@@ -35,6 +35,7 @@ shared:
     timeout: 15m
     cache:
       - web/node_modules
+      - build/cache/jest
     dependencies:
       - yarn
     run:
