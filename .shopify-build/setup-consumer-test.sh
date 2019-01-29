@@ -1,24 +1,11 @@
 #!/usr/bin/env bash
 shopt -s extglob
-# set -e
-
-if [ ! -d "cache-directory" ]; then
-  mkdir cache-directory
-fi
+set -e
 
 ls -l
 mkdir ../tmp/polaris-react
-mv !(node_modules|cache-directory) ../tmp/polaris-react
-ls -l
+mv !(node_modules) ../tmp/polaris-react
+mv ../tmp/polaris-react polaris-react
 git clone ssh://git@github.com/Shopify/$1 --depth 1
-if [ -d "cache-directory/$1" ]; then
-  cp -r cache-directory/$1/node_modules $1/node_modules
-fi
 ls -l
-ls -l $1
 yarn --cwd ./$1 add file:../polaris-react
-if [ -d "cache-directory/$1" ]; then
-  rm -rf cache-directory/$1
-fi
-mkdir cache-directory/$1
-mv $1/node_modules cache-directory/$1/node_modules
