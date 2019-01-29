@@ -7,8 +7,12 @@ mkdir ../tmp/polaris-react
 mv !(node_modules|web|polaris-styleguide) ../tmp/polaris-react
 ls -l
 if [ -d "$1" ]; then
-  git clone --depth 1 ssh://git@github.com/Shopify/$1 ../tmp/$1
-  mv ../tmp/$1/* $1
+  ls -l $1
+  chown 777 $1/node_modules
+  mv $1/node_modules ./
+  rm -rf $1
+  git clone --depth 1 ssh://git@github.com/Shopify/$1
+  mv node_modules $1/
 else
   git clone --depth 1 ssh://git@github.com/Shopify/$1
 fi
