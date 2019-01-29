@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 shopt -s extglob
-set -e
+#set -e
 
 ls -l
 mkdir ../tmp/polaris-react
 mv !(node_modules|web|polaris-styleguide) ../tmp/polaris-react
+mv ../tmp/polaris-react polaris-react
 ls -l
 if [ -d "$1" ]; then
   ls -l $1
-  chown 777 $1/node_modules
   mv $1/node_modules ./
   rm -rf $1
   git clone --depth 1 ssh://git@github.com/Shopify/$1
