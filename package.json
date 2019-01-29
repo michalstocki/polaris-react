@@ -31,6 +31,7 @@
   "types": "types/index.d.ts",
   "scripts": {
     "lint": "sewing-kit lint",
+    "haha": "echo haha",
     "format": "sewing-kit format",
     "ts": "tsc --noEmit",
     "test": "sewing-kit test",
