@@ -9,8 +9,6 @@ shared:
     label: 'Build web'
     container: default
     timeout: 25m
-    cache:
-      - node_modules
     dependencies:
       - yarn
     run:
