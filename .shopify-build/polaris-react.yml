@@ -9,6 +9,9 @@ shared:
     label: 'Build web'
     container: default
     timeout: 25m
+    cache:
+      - node_modules
+      - web/node_modules
     dependencies:
       - yarn
     run:
@@ -19,6 +22,9 @@ shared:
     label: 'Build styleguide'
     container: styleguide
     timeout: 20m
+    cache:
+      - node_modules
+      - polaris-styleguide/node_modules
     dependencies:
       - yarn
     run:
@@ -29,6 +35,9 @@ shared:
     label: '🤓 Unit tests'
     container: default
     timeout: 15m
+    cache:
+      - node_modules
+      - web/node_modules
     dependencies:
       - yarn
     run:
