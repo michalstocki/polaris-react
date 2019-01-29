@@ -21,8 +21,6 @@ shared:
     label: 'Build styleguide'
     container: styleguide
     timeout: 20m
-    cache:
-      - node_modules
     dependencies:
       - yarn
     run:
@@ -33,8 +31,6 @@ shared:
     label: '🤓 Unit tests'
     container: default
     timeout: 15m
-    cache:
-      - node_modules
     dependencies:
       - yarn
     run:
