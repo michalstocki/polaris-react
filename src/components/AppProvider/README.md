@@ -350,7 +350,10 @@ class ProviderThemeExample extends React.Component {
 
 ## Initializing the Shopify App Bridge
 
-When using Polaris, you don’t need to go through the initialization of the Shopify App Bridge as described [in the docs](https://help.shopify.com/en/api/embedded-apps/app-bridge#set-up-your-app). Instead, configure the connection to the Shopify admin through the app provider component, which must wrap all components in an embedded app. This component initializes the Shopify App Bridge using the `apiKey` and `shopOrigin` you provide. **The `apiKey` attribute is required** and can be found in the [Shopify Partner Dashboard](https://partners.shopify.com).
+When using Polaris, you don’t need to go through the initialization of the Shopify App Bridge as described in the [Shopify Help Center](https://help.shopify.com/en/api/embedded-apps/app-bridge#set-up-your-app). Instead, configure the connection to the Shopify admin through the [app provider component](https://polaris.shopify.com/components/structure/app-provider), which wraps all components in an embedded app. The app provider component initializes the Shopify App Bridge using the `apiKey` and `shopOrigin` that you provide.
+
+**The `apiKey` attribute is required**. You can find the API key for your app in the **Apps** section of your [Shopify Partner Dashboard](https://partners.shopify.com).
+
 **The `shopOrigin` attribute is optional**, however it is best practice to [get and store `shopOrigin` yourself](https://help.shopify.com/en/api/embedded-apps/shop-origin).
 
 ```jsx
