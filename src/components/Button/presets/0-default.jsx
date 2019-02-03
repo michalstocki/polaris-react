@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Button from '../Button.tsx';
+import Button from '../Button';
 
 export default (
-  <Button>Hello</Button>
+  <Button />
 )

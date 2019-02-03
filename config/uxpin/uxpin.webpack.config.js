@@ -76,7 +76,7 @@ module.exports = {
                 babelrc: false,
                 presets: [
                   ['babel-preset-shopify/web', {modules: false}],
-                  ['babel-preset-shopify/react', {hot: true}],
+                  ['babel-preset-shopify/react', {hot: false}],
                 ],
               },
             },
