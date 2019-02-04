@@ -117,7 +117,7 @@
     "@types/lodash": "^4.14.108",
     "@types/lodash-decorators": "^4.0.0",
     "@types/node": "^8.10.17",
-    "@uxpin/merge-cli": "^1.0.0-typescript.1",
+    "@uxpin/merge-cli": "0.1.0-dev.2",
     "archiver": "^2.1.0",
     "awesome-typescript-loader": "^5.2.1",
     "aws-sdk": "^2.58.0",

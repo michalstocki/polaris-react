@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
-const {svgOptions: svgOptimizationOptions} = require('@shopify/images/optimize');
+const {
+  svgOptions: svgOptimizationOptions,
+} = require('@shopify/images/optimize');
 const postcssShopify = require('postcss-shopify');
 
 const ICON_PATH_REGEX = /icons\//;
@@ -25,11 +27,6 @@ module.exports = {
       '@shopify/polaris': path.resolve(__dirname, '..', 'src'),
     },
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development'),
-    }),
-  ],
   module: {
     rules: [
       {
@@ -50,15 +47,19 @@ module.exports = {
       },
       {
         test(resource) {
-          return IMAGE_PATH_REGEX.test(resource) && !ICON_PATH_REGEX.test(resource);
+          return (
+            IMAGE_PATH_REGEX.test(resource) && !ICON_PATH_REGEX.test(resource)
+          );
         },
-        use: [{
-          loader: 'url-loader',
-          options: {
-            limit: 10000,
-            emitFile: true,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              emitFile: true,
+            },
           },
-        }],
+        ],
       },
       {
         test: /\.tsx?$/,
@@ -79,6 +80,18 @@ module.exports = {
                   ['babel-preset-shopify/react', {hot: false}],
                 ],
               },
+            },
+          },
+        ],
+      },
+      {
+        test: /\.js?$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              babelrc: false,
+              presets: ['@babel/preset-env', '@babel/preset-react'],
             },
           },
         ],
@@ -109,17 +122,29 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: false,
-              includePaths: [
-                path.resolve(__dirname, '..', 'src', 'styles'),
-              ],
+              includePaths: [path.resolve(__dirname, '..', 'src', 'styles')],
             },
           },
           {
             loader: 'sass-resources-loader',
             options: {
               resources: [
-                path.resolve(__dirname, '..', '..', 'src', 'styles', 'foundation.scss'),
-                path.resolve(__dirname, '..', '..', 'src', 'styles', 'shared.scss'),
+                path.resolve(
+                  __dirname,
+                  '..',
+                  '..',
+                  'src',
+                  'styles',
+                  'foundation.scss',
+                ),
+                path.resolve(
+                  __dirname,
+                  '..',
+                  '..',
+                  'src',
+                  'styles',
+                  'shared.scss',
+                ),
               ],
             },
           },
