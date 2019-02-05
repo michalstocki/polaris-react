@@ -101,8 +101,9 @@ export function Button({
   submit,
   size = DEFAULT_SIZE,
   fullWidth,
-  polaris: {intl},
+  polaris,
 }: CombinedProps) {
+  const {intl} = polaris;
   const isDisabled = disabled || loading;
   const className = classNames(
     styles.Button,
@@ -180,6 +181,7 @@ export function Button({
       </a>
     ) : (
       <UnstyledLink
+        polaris={polaris}
         id={id}
         url={url}
         external={external}
