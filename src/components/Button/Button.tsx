@@ -47,7 +47,7 @@ export interface Props {
   /** Forces url to open in a new tab */
   external?: boolean;
   /** Icon to display to the left of the button content */
-  icon?: React.ReactNode | IconSource;
+  icon?: React.ReactNode;
   /** Visually hidden text for screen readers */
   accessibilityLabel?: string;
   /** Id of the element the button controls */
@@ -70,11 +70,11 @@ export interface Props {
   onKeyDown?(event: React.KeyboardEvent<HTMLButtonElement>): void;
 }
 
-export type CombinedProps = Props & WithAppProviderProps;
+export interface CombinedProps extends WithAppProviderProps, Props {}
 
 const DEFAULT_SIZE = 'medium';
 
-function Button({
+export function Button({
   id,
   url,
   disabled,

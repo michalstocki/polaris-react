@@ -16,7 +16,7 @@ export interface Props extends React.HTMLProps<HTMLAnchorElement> {
 }
 
 export type LinkLikeComponent = ReactComponent<Props> | undefined;
-export type CombinedProps = Props & WithAppProviderProps;
+export interface CombinedProps extends WithAppProviderProps, Props {}
 
 export class UnstyledLink extends React.PureComponent<CombinedProps, never> {
   render() {
