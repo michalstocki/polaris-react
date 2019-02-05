@@ -31,7 +31,7 @@ export interface Props {
    * Changes the size of the button, giving it more or less padding
    * @default 'medium'
    */
-  size?: Size;
+  size?:'slim' | 'medium' | 'large';
   /** Gives the button a subtle alternative to the default button styling, appropriate for certain backdrops */
   outline?: boolean;
   /** Allows the button to grow to the width of its container */
